@@ -1,0 +1,27 @@
+function DLL.insert_front(num)
+  set new_node = node(num)
+  new_node.next = DLL.head 
+  new_node.prev = (1)         # 새 노드의 prev 포인터는 null 이어야 함. 
+  DLL.head.(2) = new_node     # DLL의 head.prev는 new_node를 가리켜야 함. 
+  DLL.head = new_node
+  
+function DLL.insert_end(num)
+  set new_node = node(num)
+  new_node.next = null
+  new_node.prev = DLL.(3)      # 새 노드의 prev 포인터는 DLL.tail이어야 함. 
+  DLL.tail.next = new_node
+  DLL.tail = (4)               # DLL의 tail은 new_node를 가리켜야 함. 
+  
+function DLL.delete_front()
+  set result = DLL.head.value
+  DLL.head.next.(5) = null      # DLL의 head.next.prev는 null이어야 함. 
+  DLL.head = DLL.head.next
+  
+  return result
+  
+function DLL.delete_end()
+  set result = DLL.tail.value
+  DLL.tail.prev.next = null
+  DLL.tail = DLL.tail.(6)       # DLL의 tail은 DLL.tail.prev를 가리켜야 함. 
+  
+  return result
